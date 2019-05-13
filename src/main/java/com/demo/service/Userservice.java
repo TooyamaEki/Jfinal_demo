@@ -29,20 +29,30 @@ public boolean add(User m){
 	return m.save();
 }
 
+  
+/**
+ * 这里的keep是保留返回的指定字段a
+ * @param accound
+ * @param psw
+ * @return 
+ */
+public Record login(String account,String psw){
+Record r = get(account);
 
 
-public Record login(){
-	
-	
-	return null;
+if(r!=null&&psw.equals(r.getStr("psw"))){
+	r.keep("account","name");
+	return r;
+}
+return r;
+
 }
 
-public Record get(){
+public  Record get(String account){
 	
-	Record r = dao.get();
+	Record r = dao.get(account);
+	
 	return r;
-	
-	
 }
 
 

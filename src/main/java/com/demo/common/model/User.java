@@ -14,6 +14,7 @@ public class User extends BaseUser<User> {
 	 */
 	public Record get(String account){
 		String sql = "SELECT * FROM `user` WHERE account = ? LIMIT 1";
+		
 		return Db.findFirst(sql, account);
 	}
 }

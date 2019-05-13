@@ -4,6 +4,7 @@ package com.demo.controller;
 import com.demo.common.model.User;
 import com.demo.service.Userservice;
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Record;
 
 public class UserController extends Controller{
 	/**
@@ -15,8 +16,6 @@ public class UserController extends Controller{
 		
 		boolean r = Userservice.me.add(getModel(User.class, "m"));
 		
-		
-		
 			if(r){
 				renderText("注册成功");
 			}else{
@@ -24,7 +23,17 @@ public class UserController extends Controller{
 			}
 		
 	}
-	public void getUser(){
+	public void login(){
+		
+		Record r= Userservice.me.login(getPara("account"), getPara("psw"));
+		if(r==null){
+			renderJson("登陆失败");
+		}else{
+			renderJson(r);
+		}
+		
+		
+		
 		
 	}
 }
