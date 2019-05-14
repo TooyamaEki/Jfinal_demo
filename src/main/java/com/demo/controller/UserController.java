@@ -29,6 +29,7 @@ public class UserController extends Controller{
 		if(r==null){
 			renderJson("登陆失败");
 		}else{
+			setSessionAttr("userInfo", r);
 			renderJson(r);
 		}
 		
