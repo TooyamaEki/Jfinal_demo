@@ -36,6 +36,15 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return getStr("psw");
 	}
 
+	public M setState(java.lang.Integer state) {
+		set("state", state);
+		return (M)this;
+	}
+	
+	public java.lang.Integer getState() {
+		return getInt("state");
+	}
+
 	public M setName(java.lang.String name) {
 		set("name", name);
 		return (M)this;
@@ -45,13 +54,13 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return getStr("name");
 	}
 
-	public M setCreatime(java.util.Date creatime) {
-		set("creatime", creatime);
+	public M setCreateTime(java.util.Date createTime) {
+		set("create_time", createTime);
 		return (M)this;
 	}
 	
-	public java.util.Date getCreatime() {
-		return get("creatime");
+	public java.util.Date getCreateTime() {
+		return get("create_time");
 	}
 
 }

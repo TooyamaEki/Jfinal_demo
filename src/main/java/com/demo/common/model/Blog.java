@@ -1,6 +1,10 @@
 package com.demo.common.model;
 
+import java.util.List;
+
 import com.demo.common.model.base.BaseBlog;
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Record;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -12,4 +16,13 @@ import com.demo.common.model.base.BaseBlog;
 @SuppressWarnings("serial")
 public class Blog extends BaseBlog<Blog> {
 	
+	
+	
+public List<Record> get(int id){
+String sql = "SELECT * FROM blog WHERE user_id = ?";
+	return Db.find(sql,id);
+	
+	
+	
+}
 }
