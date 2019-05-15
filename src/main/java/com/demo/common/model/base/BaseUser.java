@@ -18,6 +18,15 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return getInt("id");
 	}
 
+	public M setState(java.lang.Integer state) {
+		set("state", state);
+		return (M)this;
+	}
+	
+	public java.lang.Integer getState() {
+		return getInt("state");
+	}
+
 	public M setAccount(java.lang.String account) {
 		set("account", account);
 		return (M)this;

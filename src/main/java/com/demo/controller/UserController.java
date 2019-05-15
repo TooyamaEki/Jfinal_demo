@@ -1,6 +1,10 @@
 package com.demo.controller;
 
 
+import java.io.Console;
+import java.util.List;
+
+import com.alibaba.druid.stat.TableStat.Mode;
 import com.demo.common.model.User;
 import com.demo.service.Userservice;
 import com.demo.validator.user.RegValidator;
@@ -27,15 +31,18 @@ public class UserController extends Controller{
 	}
 	public void login(){
 		Record r= Userservice.me.login(getPara("account"), getPara("psw"));
+
 		if(r==null){
-			renderJson("登陆失败");
+			renderJson("账号或者密码错误");
+			System.err.println(r);
 		}else{
-			setSessionAttr("userInfo", r);
+			setSessionAttr("UserInfo", r);
+
 			renderJson(r);
-		}
-		
-		
-		
-		
+		}	
+	}
+	public void allUser(){
+	List<Record> list=Userservice.me.userList();
+	renderJson(list);
 	}
 }

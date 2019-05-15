@@ -18,6 +18,24 @@ public abstract class BaseBlog<M extends BaseBlog<M>> extends Model<M> implement
 		return getInt("id");
 	}
 
+	public M setState(java.lang.Integer state) {
+		set("state", state);
+		return (M)this;
+	}
+	
+	public java.lang.Integer getState() {
+		return getInt("state");
+	}
+
+	public M setUserId(java.lang.Integer userId) {
+		set("user_id", userId);
+		return (M)this;
+	}
+	
+	public java.lang.Integer getUserId() {
+		return getInt("user_id");
+	}
+
 	public M setTitle(java.lang.String title) {
 		set("title", title);
 		return (M)this;
@@ -27,13 +45,13 @@ public abstract class BaseBlog<M extends BaseBlog<M>> extends Model<M> implement
 		return getStr("title");
 	}
 
-	public M setContent(java.lang.String content) {
-		set("content", content);
+	public M setPdesc(java.lang.String pdesc) {
+		set("pdesc", pdesc);
 		return (M)this;
 	}
 	
-	public java.lang.String getContent() {
-		return getStr("content");
+	public java.lang.String getPdesc() {
+		return getStr("pdesc");
 	}
 
 }
