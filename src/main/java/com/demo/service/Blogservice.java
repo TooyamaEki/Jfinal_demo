@@ -17,8 +17,9 @@ private Blog dao = new Blog().dao();
 		
 		
 		 Page<Record> r=dao.get(id);
+		 
 		 System.err.println(r);
-		return null;
+		return r;
 			
 
 		
